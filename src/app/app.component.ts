@@ -13,14 +13,15 @@ export class AppComponent {
   title = '';
 
   currentPage: number = 1;
-
+  doScrollDown: boolean;
   news: Array<any> = [];
 
   scrollCallback;
 
   constructor(private hackerNewsSerivce: HackerNewsService) {
-    this.title = 'Angular Infinite Scroller with RxJS';
+    this.title = 'Hacker News List (Scroll UP)';
     this.scrollCallback = this.getStories.bind(this);
+
    }
 
   getStories() {
@@ -29,6 +30,13 @@ export class AppComponent {
 
   private processData = (news) => {
     this.currentPage++;
-    this.news = this.news.concat(news.json());
+    if (this.news.length === 0) {
+      this.news = news.json();
+      this.doScrollDown = true;
+
+    } else {
+      this.news = news.json().concat(this.news);
+      this.doScrollDown = false;
+    }
   }
 }
