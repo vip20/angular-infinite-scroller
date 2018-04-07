@@ -1,6 +1,10 @@
 # InfiniteScroller
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+This is a fork of angular-infinite-scroller(https://github.com/ashwin-sureshkumar/angular-infinite-scroller) by Ashwin
+Angular 5 support with direction select (UP or DOWN)
+`[direction]="UP"`
+You'll have to manually pull the scroll bar down if you need infinite scroll upward.(see app.component.ts, app.component.html)
 
 ## Development server
 
